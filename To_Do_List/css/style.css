@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+*,
+*:before,
+*:after {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    height: 100vh;
+    background: linear-gradient(135deg, #8052ec, #d161ff);
+}
+
+.container {
+    width: 40%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    padding: 1.8rem 2.5rem;
+}
+
+#newtask {
+    position: relative;
+    background-color: #fff;
+    padding: 2rem 1.1rem;
+    border-radius: .4rem;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+    font-weight: 500;
+    font-size: 1.1rem;
+}
+
+#newtask input {
+    width: 70%;
+    height: 2.9rem;
+    border: 2px solid #d1d3d4;
+    padding: .75rem;
+    position: relative;
+    border-radius: 5px;
+}
+
+#newtask input:focus {
+    outline: none;
+    border-color: #8052ec;
+}
+
+#newtask button {
+    position: relative;
+    float: right;
+    width: 20%;
+    height: 2.9rem;
+    border-radius: 5px;
+    background: #8052ec;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+}
+
+#tasks {
+    position: relative;
+    background: #fff;
+    padding: 1.9rem 1.25rem;
+    margin-top: 3.75rem;
+    border-radius: .7rem;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+    width: 100%;
+}
+.task {
+    background: #fff;
+    height: 3.125rem;
+    padding: .35rem .625rem;
+    margin-top: .625rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 2px solid #d1d3d4;
+    cursor: pointer;
+}
+
+.task span {
+    font-weight: 400;
+}
+
+.task button {
+    background-color: #8052ec;
+    color: #fff;
+    width: 2.5rem;
+    height: 100%;
+    border-radius: .35rem;
+    border: none;
+    cursor: pointer;
+    outline: none;
+}
+
+.completed {
+    text-decoration: line-through;
+}
+
