@@ -41,6 +41,19 @@ function calculate() {
     resultInput.classList.remove('error')
 }
 
+document.getElementById('copyToClipboard').addEventListener('click', function(ev) {
+    const button = ev.currentTarget
+    if (button.innerText === 'Copy') {
+        button.innerText = 'Copied'
+        button.classList.add('success')
+        navigator.clipboard.writeText(resultInput.value)
+    } else {
+        button.innerText = 'Copy'
+        button.classList.remove('success')
+    }
+
+})
+
 document.getElementById('themeSwitcher').addEventListener('click', function() {
     if (main.dataset.theme === "dark") {
         root.style.setProperty('--bg-color', '#f1f5f9')
@@ -57,15 +70,3 @@ document.getElementById('themeSwitcher').addEventListener('click', function() {
     }
 })
 
-document.getElementById('copyToClipboard').addEventListener('click', function(ev) {
-    const button = ev.currentTarget
-    if (button.innerText === 'Copy') {
-        button.innerText = 'Copied'
-        button.classList.add('success')
-        navigator.clipboard.writeText(resultInput.value)
-    } else {
-        button.innerText = 'Copy'
-        button.classList.remove('success')
-    }
-
-})

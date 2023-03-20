@@ -13,12 +13,18 @@
 }
   
 body {
+    height: 100vh;
     background-color: var(--bg-color);
     color: var(--font-color);
     font-family: "Ubuntu", sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
   
 main {
+    border: 10px solid var(--border-color);
+    border-radius: .4rem;
     display: block;
     margin: 0 auto;
     max-width: 40rem;
