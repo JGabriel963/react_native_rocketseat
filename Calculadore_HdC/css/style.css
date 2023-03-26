@@ -1,0 +1,82 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Helvetica;
+}
+
+body {
+    height: 100vh;
+    background-color: #333;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem;
+}
+
+#calc {
+    width: 25rem;
+    padding: .5rem;
+    background-color: #c4c4c4;
+    color: #000;
+    display: flex;
+    flex-direction: column;
+}
+
+#calc h3 {
+    font-size: .8rem;
+    font-weight: 300;
+    color: #666;
+}
+
+#operations {
+    text-align: right;
+}
+
+#previous-operations {
+    color: #777;
+    overflow-wrap: break-word;
+    min-height: 1.6rem;
+    padding: .2rem;
+}
+
+#current-operations {
+    font-size: 3rem;
+    font-weight: 700;
+    overflow-wrap: break-word;
+    min-height: 1.6rem;
+    padding: .2rem;
+}
+
+#buttons-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 3px;
+}
+
+#buttons-container button {
+    border: 1px solid transparent;
+    border-radius: 0;
+    height: 4rem;
+    font-size: 1.2rem;
+    background-color: #dbdbdb;
+    cursor: pointer;
+}
+
+#buttons-container .number {
+    background-color: #fff;
+}
+
+#buttons-container .number:hover {
+    background-color: #BABABA;
+    border-color: #999;
+}
+
+#buttons-container #equal-btn {
+    grid-column: span 2;
+    background-color: #75a5cb;
+}
+
+#buttons-container #equal-btn:hover {
+    background-color: #3a91d8;
+}
