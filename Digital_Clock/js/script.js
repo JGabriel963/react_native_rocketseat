@@ -1,11 +1,6 @@
 let hour = document.getElementById('hour');
 let minute = document.getElementById('minute');
 let second = document.getElementById('seconds');
-console.log({
-    hour,
-    minute,
-    second
-});
 
 let clock = setInterval(
     function time() {
