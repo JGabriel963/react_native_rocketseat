@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:wght@700&family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+:root {
+    --first-color: hsl(231, 48%, 56%);
+    --title-color: hsl(231, 24%, 20%);
+    --text-color: hsl(231, 4%, 45%);
+    --body-color: hsl(231, 100%, 99%);
+    --container-color: #fff;
+
+
+    --body-font: 'Poppins', sans-serif;
+    --tinty-font-size: .625rem;
+}
+
+@media screen and (min-width: 968px) {
+    :root {
+        --tinty-font-size: .688rem;
+    }
+}
