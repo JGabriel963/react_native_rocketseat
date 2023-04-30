@@ -28,6 +28,9 @@ Repositório de todos os pequenos e grandes projetos que estou realizando durant
 <h2>RGB Color</h2>
 
 <a href="https://jgabriel963.github.io/JavaScript_Projects/RGB_Color">Color RGB</a>
+<h2>Stopwatch | Hora de Codar<h2>
+
+<a href="https://jgabriel963.github.io/JavaScript_Projects/Stopwatch_JS-HdC">Stopwatch</a>
 <h2>Tic Tac Toe | Onde Bit Code</h2>
 
 <a href="https://jgabriel963.github.io/JavaScript_Projects/Tic_Tac_Toe-Obc">Tic Tac Toe</a>
