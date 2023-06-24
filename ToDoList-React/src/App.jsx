@@ -1,6 +1,8 @@
 import { useState } from "react"
 import Todo from "./components/Todo"
 import TodoForm from "./components/TodoForm"
+import Search from "./components/Search"
+import Filter from "./components/Filter"
 
 export default function App() {
   const [all, setAll] = useState([
@@ -24,6 +26,10 @@ export default function App() {
     }
   ])
 
+  const [search, setSearch] = useState("")
+  const [filter, setFilter] = useState("All")
+  const [sort, setSort] = useState("Asc")
+
   function addTodo (text, category) {
     const newTodo = [...all, {
       id: Math.floor(Math.random() * 1000000000),
@@ -40,20 +46,36 @@ export default function App() {
     setAll(newTodo)
   }
 
+  const completeTodo = (id) => {
+    const newTodo = [...all]
+    newTodo.map((todo) => todo.id === id ? todo.isCompleted = !todo.isCompleted : todo)
+    setAll(newTodo)
+  }
+
 
   return (
-    <div className="container text-center mt-5 bg-light p-3 rounded w-75">
+    <div className="container text-center mt-5 bg-light p-3 rounded">
       <h1>Lista de Tarefas</h1>
+      <Search search={search} setSearch={setSearch} />
+      <hr />
+      <Filter />
+      <hr />
       <div className="todo-list">
-        {all.map((all) => (
+        {all.filter((all) => all.text.toLocaleLowerCase().includes(search.toLocaleLowerCase())).map((all) => (
           <Todo 
             key={all.id}
             text={all.text}
             category={all.category}
             removeTodo={() => removeTodo(all.id)}
+            completTodo={() => completeTodo(all.id)}
+            isComplete={all.isCompleted}
           />
         ))}
+        {all.length === 0 || all.filter((item) => item.text.toLocaleLowerCase().includes(search.toLocaleLowerCase())).length === 0 && (
+          <h2>Nenhum resultado</h2>
+        )}
       </div>
+      <hr />
       <TodoForm addTodo={addTodo}/>
     </div>
   )
