@@ -54,14 +54,23 @@ export default function App() {
 
 
   return (
-    <div className="container text-center mt-5 bg-light p-3 rounded">
+    <div className="container text-center mt-5 mb-5 bg-light p-3 rounded w-50">
       <h1>Lista de Tarefas</h1>
       <Search search={search} setSearch={setSearch} />
       <hr />
-      <Filter />
+      <Filter filter={filter} setFilter={setFilter} sort={sort} setSort={setSort} />
       <hr />
       <div className="todo-list">
-        {all.filter((all) => all.text.toLocaleLowerCase().includes(search.toLocaleLowerCase())).map((all) => (
+        {all
+          .filter((all) => 
+            filter === "All"
+            ? true
+            : filter === "Completed"
+            ? all.isCompleted
+            : !all.isCompleted)
+          .filter((all) => all.text.toLocaleLowerCase().includes(search.toLocaleLowerCase()))
+          .sort((a, b) => sort === "Asc" ? a.text.localeCompare(b.text) : b.text.localeCompare(a.text))
+          .map((all) => (
           <Todo 
             key={all.id}
             text={all.text}
