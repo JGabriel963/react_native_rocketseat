@@ -1,4 +1,0 @@
-References:
- - Node version: 20.11.0
- - Node Target Mapping: Typescript Config
- - Hoppscotch
