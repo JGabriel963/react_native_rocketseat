@@ -4,7 +4,15 @@ import { Header } from "@/components/Header";
 import { Title } from "@/components/Title";
 import ButtonIcon from "@/components/ButtonIcon";
 
-export function Product() {
+import { BottomRoutesProps } from "@/routes/BottomRoutes";
+// import { StackRoutesProps } from "@/routes/StackRoutes";
+// import { useRoute } from "@react-navigation/native";
+
+// type RouteParams = StackRoutesProps<"product">;
+
+export function Product({ navigation, route }: BottomRoutesProps<"product">) {
+  // const { params } = useRoute<RouteParams["route"]>();
+
   return (
     <View
       style={{
@@ -13,8 +21,12 @@ export function Product() {
       }}
     >
       <Header>
-        <ButtonIcon name="arrow-circle-left" />
-        <Title>Product</Title>
+        <ButtonIcon
+          name="arrow-circle-left"
+          onPress={() => navigation.goBack()}
+        />
+        <Title>Product {route.params?.id} </Title>
+        {/* <Title>Product {params?.id} </Title> */}
       </Header>
     </View>
   );
