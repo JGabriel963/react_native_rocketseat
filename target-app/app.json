@@ -1,0 +1,24 @@
+{
+  "expo": {
+    "name": "target-app",
+    "slug": "target-app",
+    "scheme": "your-app-scheme",
+    "version": "1.0.0",
+    "android": {
+      "package": "com.jgabriel.target_app",
+      "edgeToEdgeEnabled": true,
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#3D44CD"
+      }
+    },
+    "ios": {
+      "bundleIdentifier": "com.jgabriel.target_app",
+      "icon": "./assets/ios-icon.png"
+    },
+    "plugins": [
+      "expo-router",
+      "expo-font"
+    ]
+  }
+}
