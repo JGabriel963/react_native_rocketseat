@@ -3,25 +3,24 @@ import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
   container: {
-    height: 72,
+    height: 42,
     width: "100%",
     flexDirection: "row",
-    alignItems: "center",
-    gap: 12,
-    paddingBottom: 16,
+    backgroundColor: colors.gray[100],
+    borderRadius: 8,
+    overflow: "hidden",
   },
-  content: {
+  option: {
     flex: 1,
+    alignItems: "center",
+    justifyContent: "center",
+    flexDirection: "row",
+    borderRadius: 8,
     gap: 7,
   },
-  name: {
-    fontSize: 14,
-    color: colors.black,
+  title: {
     fontFamily: fontFamily.medium,
-  },
-  status: {
-    fontSize: 10,
+    fontSize: 14,
     color: colors.gray[500],
-    fontFamily: fontFamily.regular,
   },
 });

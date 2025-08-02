@@ -3,7 +3,7 @@ import React from "react";
 import { colors } from "@/theme/colors";
 import { sytles } from "./styles";
 
-export default function Loading() {
+export function Loading() {
   return (
     <ActivityIndicator color={colors.blue[500]} style={sytles.container} />
   );

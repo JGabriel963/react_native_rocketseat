@@ -1,9 +1,10 @@
 import { View, StatusBar } from "react-native";
-import HomeHeader from "./components/HomeHeader";
-import { Target } from "./components/Target";
-import { List } from "./components/List";
-import { Button } from "./components/Button";
+
 import { router } from "expo-router";
+import { HomeHeader } from "@/components/HomeHeader";
+import { List } from "@/components/List";
+import { Target } from "@/components/Target";
+import { Button } from "@/components/Button";
 
 const summary = {
   total: "R$ 2.680,00",

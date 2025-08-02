@@ -16,7 +16,7 @@ type Props = {
   data: HomeHeaderProps;
 };
 
-export default function HomeHeader({ data }: Props) {
+export function HomeHeader({ data }: Props) {
   return (
     <LinearGradient
       colors={[colors.blue[500], colors.blue[800]]}
@@ -38,7 +38,7 @@ export default function HomeHeader({ data }: Props) {
         <Summary
           data={data.output}
           icon={{ name: "arrow-downward", color: colors.red[400] }}
-          isLeft
+          isRight
         />
       </View>
     </LinearGradient>
