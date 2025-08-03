@@ -2,7 +2,7 @@ import { type SQLiteDatabase } from "expo-sqlite";
 
 export async function migrate(database: SQLiteDatabase) {
   return database.execAsync(`
-      PRAGMA foreign_key = ON;
+      PRAGMA foreign_keys = ON;
 
       CREATE TABLE IF NOT EXISTS targets (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
