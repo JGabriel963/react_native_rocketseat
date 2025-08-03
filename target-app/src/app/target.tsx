@@ -1,5 +1,5 @@
 import { Alert, View } from "react-native";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { PageHeader } from "@/components/PageHeader";
 import { Input } from "@/components/Input";
 import { CurrencyInput } from "@/components/CurrencyInput";
@@ -26,9 +26,26 @@ export default function Target() {
     setIsProcessing(true);
 
     if (params.id) {
-      // update
+      update();
     } else {
       create();
+    }
+  }
+
+  async function update() {
+    try {
+      await targetDatabase.update({ id: Number(params.id), name, amount });
+      Alert.alert("Sucesso!", "Meta atualizada com sucesso!", [
+        {
+          text: "Ok",
+          onPress: () => router.back(),
+        },
+      ]);
+    } catch (error) {
+      Alert.alert("Erro", "Não foi possível atualizar a meta.");
+      console.log(error);
+    } finally {
+      setIsProcessing(false);
     }
   }
 
@@ -49,6 +66,55 @@ export default function Target() {
     }
   }
 
+  async function fetchDetails(id: number) {
+    try {
+      const response = await targetDatabase.show(id);
+      setName(response.name);
+      setAmount(response.amount);
+    } catch (error) {
+      Alert.alert("Erro", "Não foi possível carregar os detalhes da meta.");
+      console.log(error);
+    }
+  }
+
+  function handleRemove() {
+    if (!params.id) {
+      return;
+    }
+
+    Alert.alert("Remover", "Deseja realmente remover", [
+      {
+        text: "Não",
+        style: "cancel",
+      },
+      { text: "Sim", onPress: remover },
+    ]);
+  }
+
+  async function remover() {
+    try {
+      setIsProcessing(true);
+      await targetDatabase.remove(Number(params.id));
+      Alert.alert("Meta", "Meta removida!", [
+        {
+          text: "Ok",
+          onPress: () => router.replace("/"),
+        },
+      ]);
+    } catch (error) {
+      Alert.alert("Erro", "Não foi possível remover a meta.");
+      console.log(error);
+    } finally {
+      setIsProcessing(false);
+    }
+  }
+
+  useEffect(() => {
+    if (params.id) {
+      fetchDetails(Number(params.id));
+    }
+  }, [params.id]);
+
   return (
     <View
       style={{
@@ -56,7 +122,13 @@ export default function Target() {
         padding: 24,
       }}
     >
-      <PageHeader title="Meta" subtitle="Nova meta, amigão!" />
+      <PageHeader
+        title="Meta"
+        subtitle="Economize para alcançar sua meta financeira"
+        rigthButton={
+          params.id ? { icon: "delete", onPress: handleRemove } : undefined
+        }
+      />
       <View style={{ marginTop: 32, gap: 24 }}>
         <Input
           label="Nome da meta"

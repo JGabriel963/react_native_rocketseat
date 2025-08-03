@@ -19,6 +19,7 @@ export const styles = StyleSheet.create({
   },
   empty: {
     fontSize: 14,
+    marginTop: 24,
     color: colors.gray[600],
     fontFamily: fontFamily.regular,
   },
